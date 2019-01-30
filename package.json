@@ -4,10 +4,8 @@
   "description": "AWS Master Server Code",
   "main": "./dist/server.js",
   "scripts": {
-    "compile": "tsc || exit 1",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "buildAndRun": "npm run lint && npm run compile && npm start",
-    "dev": "nodemon -e ts,html --exec \"npm run buildAndRun\"",
+    "build": "tslint -c tslint.json 'src/**/*.ts' && (tsc || exit 1)",
+    "dev": "nodemon -e ts,html --exec \"npm run build && npm start\"",
     "start": "node ./dist/server.js"
   },
   "repository": {
