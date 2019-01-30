@@ -2,9 +2,11 @@
   "name": "master-server",
   "version": "1.0.0",
   "description": "AWS Master Server Code",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc",
+    "start": "tsc && node ./dist/server.js",
+    "dev": "nodemon -e ts  --exec \"npm run start\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/racerr-io/master-server/issues"
   },
-  "homepage": "https://github.com/racerr-io/master-server#readme"
+  "homepage": "https://github.com/racerr-io/master-server#readme",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "nodemon": "^1.18.9",
+    "typescript": "^3.2.4"
+  }
 }
