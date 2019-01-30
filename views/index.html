@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>racerr.io</title>
+    <link rel="shortcut icon" href="/static/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="/static/TemplateData/style.css">
+    <script src="/static/TemplateData/UnityProgress.js"></script>
+    <script src="/static/Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "/static/Build/WebGL Client Build.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content" style="width: 100%; height: 100%;">
+      <div id="gameContainer" style="width: 100%; height: 95%;"></div>
+      <div class="footer">
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">racerr.io</div>
+      </div>
+    </div>
+  </body>
+</html>
