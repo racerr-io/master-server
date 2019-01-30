@@ -12,6 +12,6 @@ app.get("/", (_, res) =>
   res.render("index")
 );
 
-app.listen(80, () =>
+app.listen(3000, () =>
   console.log("racerr.io Master Server started.")
 );
