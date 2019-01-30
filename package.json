@@ -4,9 +4,11 @@
   "description": "AWS Master Server Code",
   "main": "./dist/server.js",
   "scripts": {
-    "compile": "tsc",
-    "start": "tsc && node ./dist/server.js",
-    "dev": "nodemon -e ts,html  --exec \"npm run start\""
+    "compile": "tsc || exit 1",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "buildAndRun": "npm run lint && npm run compile && npm start",
+    "dev": "nodemon -e ts,html --exec \"npm run buildAndRun\"",
+    "start": "node ./dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "express": "^4.16.4",
     "mustache-express": "^1.2.8",
     "nodemon": "^1.18.9",
+    "tslint": "^5.12.1",
     "typescript": "^3.2.4"
   }
 }
