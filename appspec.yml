@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: ~/codedeploy
+    destination: /home/ec2-user/codedeploy
 hooks:
   ApplicationStart:
-    - location: ~/.start
+    - location: /home/ec2-user/start
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: ~/.stop
+    - location: /home/ec2-user/stop
       timeout: 300
       runas: root
