@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/codedeploy
+    destination: /home/ec2-user/master-server
 hooks:
   ApplicationStart:
     - location: scripts/ApplicationStart.sh
