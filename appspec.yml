@@ -5,10 +5,10 @@ files:
     destination: /home/ec2-user/codedeploy
 hooks:
   ApplicationStart:
-    - location: scripts/ApplicationStart
+    - location: scripts/ApplicationStart.sh
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: scripts/ApplicationStop
+    - location: scripts/ApplicationStop.sh
       timeout: 300
       runas: root
