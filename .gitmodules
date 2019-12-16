@@ -1,0 +1,3 @@
+[submodule "unity-bin"]
+	path = unity-bin
+	url = https://github.com/racerr-io/unity-bin.git
