@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: ~/codedeploy
+hooks:
+  ApplicationStart:
+    - location: ~/.start
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: ~/.stop
+      timeout: 300
+      runas: root
