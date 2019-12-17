@@ -1,3 +1,4 @@
+set -e
 source /home/ec2-user/.bash_profile
 pm2 delete all | exit 0
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000
