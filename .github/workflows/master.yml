@@ -31,12 +31,12 @@ jobs:
         with:
           tag_name: ${{ steps.create_tag.outputs.new_tag }}
           release_name: ${{ steps.create_tag.outputs.new_tag }}
-          body: This is a release of the racerr.io WebGL client service executed by the [pipeline](https://github.com/racerr-io/master-server/actions/runs/${{ github.run_id }}).
+          body: This is a release of the racerr.io WebGL client service executed by the [pipeline](https://github.com/racerr-io/webgl-client-service/actions/runs/${{ github.run_id }}).
 
       - name: Build and publish Docker image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: docker.pkg.github.com/racerr-io/master-server/webgl-client-service
+          name: docker.pkg.github.com/racerr-io/webgl-client-service/webgl-client-service
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
