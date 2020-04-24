@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# Do not commit the build of the game itself
+static/Build
+build
+WebGLBuild.zip
+dist

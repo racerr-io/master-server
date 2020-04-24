@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="/static/WebGL/favicon.ico">
+    <link rel="shortcut icon" href="/static/favicon.ico">
     <title>racerr.io</title>
     <style>
       html {
@@ -94,15 +94,15 @@
   <body>
     <div id="gameContainer"></div>
     <div id="loader">
-      <img class="logo" src="/static/WebGL/logo.png">
+      <img class="logo" src="/static/logo.png">
       <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
     </div>
   </body>
 
-  <script src="/static/WebGL/Build/UnityLoader.js"></script>
+  <script src="/static/Build/UnityLoader.js"></script>
   <script>
-  var gameInstance = UnityLoader.instantiate("gameContainer", "/static/WebGL/Build/WebGL Client Build.json", {onProgress: UnityProgress});
+  var gameInstance = UnityLoader.instantiate("gameContainer", "/static/Build/WebGL.json", {onProgress: UnityProgress});
   function UnityProgress(gameInstance, progress) {
     if (!gameInstance.Module) {
       return;
