@@ -35,10 +35,11 @@ jobs:
           prerelease: ${{ github.ref != 'refs/heads/master' }}
 
       - name: Build and publish Docker image
+        if: github.ref != 'refs/heads/master'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/racerr-io/master-server/webgl-client-service
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          tags: "${{ steps.create_tag.outputs.new_tag }}"
+          tags: "${{ steps.create_tag.outputs.new_tag }},prod"
