@@ -1,0 +1,44 @@
+name: Pipeline
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  release_and_build_and_deploy:
+    name: Release, build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+        with:
+          lfs: true
+
+      - name: Create tag
+        id: create_tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          DEFAULT_BUMP: major
+          
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@master
+        with:
+          tag_name: ${{ steps.create_tag.outputs.new_tag }}
+          release_name: ${{ steps.create_tag.outputs.new_tag }}
+          body: This is a build of the racerr.io WebGL client service executed by the [pipeline](https://github.com/racerr-io/master-server/actions/runs/${{ github.run_id }}).
+          prerelease: ${{ github.ref != 'refs/heads/master' }}
+
+      - name: Build and publish Docker image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: docker.pkg.github.com/racerr-io/master-server/webgl-client-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          tags: "${{ steps.create_tag.outputs.new_tag }}"

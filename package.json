@@ -1,30 +1,36 @@
 {
-  "name": "master-server",
-  "version": "1.0.0",
-  "description": "AWS Master Server Code",
-  "main": "./dist/server.js",
-  "scripts": {
-    "build": "tslint -c tslint.json 'src/**/*.ts' && (tsc || exit 1)",
-    "dev": "nodemon -e ts,html --exec \"npm run build && npm start\"",
-    "start": "node ./dist/server.js"
+  "name": "webgl-client-service",
+  "description": "racerr.io - WebGL client service",
+  "homepage": "https://github.com/racerr-io/webgl-client-service#readme",
+  "bugs": {
+    "url": "https://github.com/racerr-io/webgl-client-service/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/racerr-io/master-server.git"
+    "url": "git+https://github.com/racerr-io/webgl-client-service.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/racerr-io/master-server/issues"
+  "author": "",
+  "main": "./dist/server.js",
+  "scripts": {
+    "build": "npm run getBuildLazy && eslint src/**/*.ts --quiet && (tsc || exit 1)",
+    "dev": "npm run getBuildLazy && nodemon -e ts,html --exec \"eslint src/**/*.ts --quiet --fix && (tsc || exit 1) && npm start\"",
+    "getBuild": "rm -rf build && rm -rf static/Build && scripts/GetLatestBuild.sh",
+    "getBuildLazy": "if [ ! -d static/Build ]; then npm run getBuild; fi",
+    "start": "node ./dist/server.js"
   },
-  "homepage": "https://github.com/racerr-io/master-server#readme",
   "dependencies": {
-    "@types/express": "^4.16.1",
-    "@types/mustache-express": "^1.2.0",
-    "express": "^4.16.4",
-    "mustache-express": "^1.2.8",
-    "nodemon": "^1.18.9",
-    "tslint": "^5.12.1",
-    "typescript": "^3.2.4"
+    "@types/express": "^4",
+    "@types/mustache-express": "^1",
+    "@typescript-eslint/eslint-plugin": "^2",
+    "@typescript-eslint/parser": "^2",
+    "eslint": "^6",
+    "eslint-config-prettier": "^6",
+    "eslint-plugin-prettier": "^3",
+    "express": "^4",
+    "mustache-express": "^1",
+    "nodemon": "^2",
+    "prettier": "^2",
+    "typescript": "^3"
   }
 }
