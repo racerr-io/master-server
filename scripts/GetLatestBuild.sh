@@ -1,6 +1,6 @@
 #!/bin/bash
 
-API_URL="https://api.github.com/repos/racerr-io/unity-core"
+API_URL="https://api.github.com/repos/racerr-io/racerr"
 
 if [[ -z "$PROD" ]]; then
   echo Downloading staging WebGL client build
