@@ -17,7 +17,7 @@
     "dev": "npm run getBuildLazy && nodemon -e ts,html --exec \"eslint src/**/*.ts --quiet --fix && (tsc || exit 1) && npm start\"",
     "getBuild": "rm -rf build && rm -rf static/Build && scripts/GetBuild.sh",
     "getBuildLazy": "if [ ! -d static/Build ]; then npm run getBuild; fi",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server.js 3000"
   },
   "dependencies": {
     "@types/express": "^4",

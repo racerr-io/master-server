@@ -5,5 +5,5 @@ RUN npm ci
 COPY . .
 RUN chmod +x scripts/GetBuild.sh
 RUN npm run build
-EXPOSE 3000
-ENTRYPOINT ["node", "dist/server.js"]
+EXPOSE 80
+ENTRYPOINT ["node", "dist/server.js", "80"]

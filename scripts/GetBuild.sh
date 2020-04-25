@@ -4,7 +4,7 @@
 
 API_URL="https://api.github.com/repos/racerr-io/racerr"
 
-RACERR_VERSION=`cat RACERR_VERSION.txt`
+RACERR_VERSION=`cat RACERR_VERSION.txt | tr -d '\r' | tr -d '\n'`
 echo "Downloading build - Racerr $RACERR_VERSION (WebGL)"
 ASSET_ID=$(curl $API_URL/releases/tags/$RACERR_VERSION | jq -r ".assets | map(select(.name == \"WebGLBuild.zip\"))[0].id")
 
