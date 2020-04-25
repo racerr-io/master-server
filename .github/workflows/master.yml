@@ -7,6 +7,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
   release_and_build_and_deploy:
@@ -41,3 +43,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           tags: "${{ steps.create_tag.outputs.new_tag }},prod"
+
+      - name: Deploy to Amazon ECS
+        run: aws ecs update-service --cluster racerr-io --service racerr --force-new-deployment
