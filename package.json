@@ -15,7 +15,7 @@
   "scripts": {
     "build": "npm run getBuildLazy && eslint src/**/*.ts --quiet && (tsc || exit 1)",
     "dev": "npm run getBuildLazy && nodemon -e ts,html --exec \"eslint src/**/*.ts --quiet --fix && (tsc || exit 1) && npm start\"",
-    "getBuild": "rm -rf build && rm -rf static/Build && scripts/GetLatestBuild.sh",
+    "getBuild": "rm -rf build && rm -rf static/Build && scripts/GetBuild.sh",
     "getBuildLazy": "if [ ! -d static/Build ]; then npm run getBuild; fi",
     "start": "node ./dist/server.js"
   },

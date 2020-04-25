@@ -1,17 +1,15 @@
 #!/bin/bash
 
+# run this script from the root of the repository using npm run getBuild
+
 API_URL="https://api.github.com/repos/racerr-io/racerr"
 
-if [[ -z "$PROD" ]]; then
-  echo Downloading staging WebGL client build
-  ASSET_ID=$(curl $API_URL/releases | jq -r ".[0].assets | map(select(.name == \"WebGLBuild.zip\"))[0].id")
-else
-  echo Downloading production WebGL client build
-  ASSET_ID=$(curl $API_URL/releases/latest | jq -r ".assets | map(select(.name == \"WebGLBuild.zip\"))[0].id")
-fi
+RACERR_VERSION=`cat RACERR_VERSION.txt`
+echo "Downloading build - Racerr $RACERR_VERSION (WebGL)"
+ASSET_ID=$(curl $API_URL/releases/tags/$RACERR_VERSION | jq -r ".assets | map(select(.name == \"WebGLBuild.zip\"))[0].id")
 
 if [[ -z "$ASSET_ID" ]]; then
-  echo "Could not find asset id"
+  echo "Failed to retrieve Racerr build."
   exit 1
 fi
 
