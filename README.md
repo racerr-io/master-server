@@ -1,4 +1,4 @@
-# racerr.io - WebGL client service
+# racerr.io - WebGL Client Service
 
 Service which is responsible for serving the web page containing the compiled Unity WebGL player.
 

@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-  repository_dispatch:
-    types: [updated-webgl-client-build]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
