@@ -5,6 +5,9 @@ on:
     branches:
       - master
       - staging-ci
+  repository_dispatch:
+    types:
+      - start
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

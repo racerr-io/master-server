@@ -11,9 +11,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
 
-      - name: Synchronise with staging-ci branch
+      - name: Push to staging-ci branch
         uses: ad-m/github-push-action@master
         with:
           force: true
           branch: staging-ci
-          github_token: ${{ secrets.RYAN_PERSONAL_TOKEN }}
+
+      - name: Start primary pipeline on staging-ci branch
+        uses: peter-evans/repository-dispatch@master
+        with:
+          token: ${{ secrets.RYAN_PERSONAL_TOKEN }}
+          event-type: start
