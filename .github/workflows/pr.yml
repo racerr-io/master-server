@@ -16,6 +16,7 @@ jobs:
         with:
           force: true
           branch: staging-ci
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Start primary pipeline on staging-ci branch
         uses: peter-evans/repository-dispatch@master
