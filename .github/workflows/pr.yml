@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-        with:
-          lfs: true
 
       - name: Synchronise with staging-ci branch
         uses: ad-m/github-push-action@master
