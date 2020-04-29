@@ -67,4 +67,4 @@ jobs:
           tags: "${{ steps.create_tag.outputs.new_tag }},${{ env.BUILD_ENV }},staging"
 
       - name: Deploy to Amazon ECS
-        run: aws ecs update-service --cluster racerr-io --service racerr --force-new-deployments
+        run: aws ecs update-service --cluster racerr-io --service racerr --force-new-deployment
