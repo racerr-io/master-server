@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - staging-racerr-ci
+      - staging-ci
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

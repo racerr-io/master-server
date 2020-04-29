@@ -1,0 +1,19 @@
+name: PR Pipeline
+
+on:
+  pull_request:
+
+jobs:
+  synchronise_with_staging_ci_branch:
+    name: Synchronise with staging-ci branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+        with:
+          lfs: true
+
+      - name: Synchronise with staging-ci branch
+        run: | 
+          git branch staging-ci || true
+          git push -u origin staging-ci
