@@ -14,7 +14,8 @@ jobs:
           lfs: true
 
       - name: Synchronise with staging-ci branch
-        run: | 
-          git remote set-url origin https://$GITHUB_ACTOR:${{ secrets.RYAN_PERSONAL_TOKEN }}@github.com/racerr-io/webgl-client-service.git
-          git branch staging-ci || true
-          git push -u origin staging-ci
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          branch: staging-ci
+          github_token: ${{ secrets.RYAN_PERSONAL_TOKEN }}
