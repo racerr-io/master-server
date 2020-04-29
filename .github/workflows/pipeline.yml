@@ -1,10 +1,11 @@
-name: Master Pipeline
+name: Pipeline
 
 on:
+  pull_request:
   push:
     branches:
       - master
-      - staging-ci
+      - staging-racerr-ci
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
