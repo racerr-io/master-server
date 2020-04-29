@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - staging-ci
+      - staging-racerr-ci
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,8 +39,8 @@ jobs:
 
       - name: Delete existing staging release and tag
         run: | 
-          chmod +x Scripts/CleanupStaging.sh
-          Scripts/CleanupStaging.sh
+          chmod +x scripts/CleanupStaging.sh
+          scripts/CleanupStaging.sh
           git push --delete origin staging || true
 
       - name: Create tag
