@@ -4,6 +4,7 @@ on:
   push:
     branches-ignore:
       - master
+      - staging-racerr-ci
 
 jobs:
   build_only:
