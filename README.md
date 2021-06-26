@@ -1,13 +1,8 @@
-# racerr.io - WebGL Client Service
+# racerr.io - WebGL Client Service (Deprecated)
 
-Service which is responsible for serving the web page containing the compiled Unity WebGL player.
-
-## Getting started
-Make sure you have Node.js installed.
-```bash
-npm install
-npm run dev
-```
+Service which was responsible for serving the web page containing the compiled Unity WebGL player.
+It is no longer required as the [main repository](https://github.com/racerr-io/racerr) does a serverless
+deployment of the WebGL client.
 
 ## Team members
 
